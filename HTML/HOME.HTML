@@ -4,68 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../CSS/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        .column {
+          float: left;
+          width: 25%;
+          padding: 100px;
+          margin: 30px;
+        }
+        
+        /* Clearfix (clear floats) */
+        .row::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+        img {
+  border: 2px solid #555;
+ 
+        }
+        </style> 
+
 </head>
 <body>
     <!-- Header -->
     <header>
         <nav>
-            <a href="">Shopping Cart </a>
+            <a href="" class="navbar">Shopping Cart <br><br><i class='bx bxs-shopping-bags'></i> </a>
         </nav>
-        <i class='bx bxs-shopping-bags'></i>
+        
+       
     </header>
    <!-- shopping section -->
    <section>
    <div>
-    <h2>Shopping Products</h2>
+    <h2 id="fontmo"><br><br><br><br>Shopping Products</h2>
    </div>
-   <div>
-    <img src="../Images/bag1.jpg" alt="Image not found">
-    <h3>School Bag</h3>
-    <span>$500</span>
+   <div class="row">
+    <div class="column">
+    <img src="../Images/bag1.jpg" alt="Image not found" width="200px" height="200px">
+    <h3 id="fontmo">School Bag</h3>
+    <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nulla animi delectus deleniti odit, fugit nemo sit laborum inventore commodi
+    <br><br>
+    <span id="fontmo">$500</span>
     <i class='bx bxs-shopping-bag'></i>
    </div>
 
-   <div>
-    <img src="../Images/ear.jfif" alt="Image not found">
-    <h3>School Bag</h3>
-    <span>$500</span>
+   <div class="column">
+    <img src="../Images/ear.jfif" alt="Image not found" width="200px" height="200px">
+    <h3 id="fontmo">Earphones</h3>
+    <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nulla animi delectus deleniti odit, fugit nemo sit laborum inventore commodi
+    <br><br>
+    <span id="fontmo">$500</span>
     <i class='bx bxs-shopping-bag'></i>
    </div>
 
-   <div>
-    <img src="../Images/headphones.jfif" alt="Image not found">
-    <h3>School Bag</h3>
-    <span>$500</span>
+   <div class="column">
+    <img src="../Images/headphones.jfif" alt="Image not found" width="200px" height="200px">
+    <h3 id="fontmo">Headphones</h3>
+    <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nulla animi delectus deleniti odit, fugit nemo sit laborum inventore commodi
+    <br><br>
+    <span id="fontmo">$500</span>
     <i class='bx bxs-shopping-bag'></i>
    </div>
 
-   <div>
-    <img src="../Images/printer.jfif" alt="Image not found">
-    <h3>School Bag</h3>
-    <span>$500</span>
+   <div class="column">
+    <img src="../Images/printer.jfif" alt="Image not found" width="200px" height="200px">
+    <h3 id="fontmo">Printer</h3>
+    <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nulla animi delectus deleniti odit, fugit nemo sit laborum inventore commodi
+    <br><br>
+    <span id="fontmo">$500</span>
     <i class='bx bxs-shopping-bag'></i>
    </div>
 
-   <div>
-    <img src="../Images/shoes.webp" alt="Image not found">
-    <h3>School Bag</h3>
-    <span>$500</span>
+   <div class="column">
+    <img src="../Images/shoes.webp" alt="Image not found" width="200px" height="200px">
+    <h3 id="fontmo">Shoes</h3>
+    <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nulla animi delectus deleniti odit, fugit nemo sit laborum inventore commodi
+    <br><br>
+    <span id="fontmo">$500</span>
     <i class='bx bxs-shopping-bag'></i>
    </div>
 
-   <div>
-    <img src="../Images/smwatch.jfif" alt="Image not found">
-    <h3>School Bag</h3>
-    <span>$500</span>
+   <div class="column">
+    <img src="../Images/smwatch.jfif" alt="Image not found" width="200px" height="200px">
+    <h3 id="fontmo">Smart Watch</h3>
+    <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nulla animi delectus deleniti odit, fugit nemo sit laborum inventore commodi
+    <br><br>
+    <span id="fontmo">$500</span>
     <i class='bx bxs-shopping-bag'></i>
    </div>
 
-   <div>
-    <img src="../Images/schoolbag.webp" alt="Image not found">
-    <h3>School Bag</h3>
-    <span>$500</span>
+   <div class="column">
+    <img src="../Images/schoolbag.webp" alt="Image not found" width="200px" height="200px">
+    <h3 id="fontmo">School Bag</h3>
+    <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nulla animi delectus deleniti odit, fugit nemo sit laborum inventore commodi
+    <br><br>
+    <span id="fontmo">$500</span>
     <i class='bx bxs-shopping-bag'></i>
+   </div>
    </div>
 </section>
 </body>
