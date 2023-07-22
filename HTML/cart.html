@@ -4,51 +4,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order-Now</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>Cart</title>
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300;1,400;1,500&display=swap' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
     <div class="container">
         <div class="row">
             <div class="col-md-10 text-center  p-1 text-secondary">
                 <h2><i> My Shopping Cart</i></h2>
-            </div><hr>
+            </div>
             <div class="col-md-2 text-left text-danger p-4 ">
-                
                 <i class='bx bx-home'></i>
-                <a href="./Home.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Home </a><hr>
+                <a href="./home.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Home</a>
             </div>
         </div>
     </div>
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-3 p-4">
+        <div class="row" id="cart-items-container">
+            <!-- JavaScript code will add items here -->
+        </div>
+    </div>
+
+    <script>
+        // Retrieve cart items from local storage
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        const container = document.getElementById('cart-items-container');
+
+        // Function to create the card element
+        function createCard(product, index) {
+            const card = document.createElement('div');
+            card.classList.add('col-md-3', 'p-4');
+
+            card.innerHTML = `
                 <div class="card">
                     <div class="card-header">
-                        <img src="../Images/bag1.jpg" class="card-img-top ">
+                        <img src="../Images/${product.image}" class="card-img-top">
                     </div>
                     <div class="card-body text-center">
-                        <h5 class="card-title">School-Bag</h5>
-                        <div class="cart-price">₹3000</div>
-                        
-                            <input type="number" class="cart-quantity" placeholder="Quantity"/>
-                            <i class='bx bxs-shopping-bag'></i>
+                        <h5 class="card-title">${product.name}</h5>
+                        <div class="cart-price">₹${product.price}</div>
+                        <input type="number" class="cart-quantity" placeholder="Quantity" value="${product.quantity}">
+                        <i class='bx bxs-shopping-bag'></i>
                     </div>
                     <div class="text-center">
                         <div>Total</div>
-                        <div class="Total-Price">₹0</div>
-                        <button type="submit" class="btn btn-outline-danger">Order-Now</button>
-                        <i class="bx-bx-x-circle" id="close-cart"></i>
+                        <div class="Total-Price">₹${product.price * product.quantity}</div>
+                        <button class="btn btn-outline-danger" onclick="updateQuantity(${index})">Update</button>
+                        <button class="btn btn-outline-danger" onclick="removeFromCart(${index})">Remove</button>
                     </div>
                 </div>
-            </div>
-        </div>
+            `;
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+            return card;
+        }
 
+        // Function to update the quantity of an item
+        function updateQuantity(index) {
+            const quantityInput = container.children[index].querySelector('.cart-quantity');
+            const quantity = parseInt(quantityInput.value);
+            if (!isNaN(quantity) && quantity >= 0) {
+                cartItems[index].quantity = quantity;
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                container.innerHTML = '';
+                showItems();
+            }
+        }
+
+        // Function to remove an item from the cart
+        function removeFromCart(index) {
+            cartItems.splice(index, 1);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            container.innerHTML = '';
+            showItems();
+        }
+
+        // Function to display all items in the cart
+        function showItems() {
+            cartItems.forEach((product, index) => {
+                const card = createCard(product, index);
+                container.appendChild(card);
+            });
+        }
+
+        // Call the function to display items when the page loads
+        showItems();
+    </script>
+
+<div class="container text-center mt-4">
+  <button class="btn btn-outline-danger" onclick="confirmOrder()">Confirm Your Order</button>
+</div>
+
+<script>
+  // ... Existing JavaScript code ...
+
+  // Function to confirm the order and clear the cart
+  function confirmOrder() {
+      if (cartItems.length > 0) {
+          // Clear the cart and update local storage
+          cartItems.length = 0;
+          localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+          // Show a confirmation alert
+          alert('Your order has been confirmed! Thank you for shopping with us.');
+
+          // Refresh the cart page to update the displayed items
+          container.innerHTML = '';
+          showItems();
+      } else {
+          alert('Your cart is empty. Add items before confirming your order.');
+      }
+  }
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
+
 </html>

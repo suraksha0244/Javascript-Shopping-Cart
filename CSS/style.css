@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300;1,400;1,500&display=swap');
 
 #shop-products{
-    color:blue;
+    color:rgb(221, 218, 130);
     text-align: center;
 }
 * {
@@ -12,6 +12,7 @@
 }
 body{
     font-family: sans-serif;
+    background-color: aqua;
 }
 i{
     cursor: pointer;
