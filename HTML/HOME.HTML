@@ -1,44 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Neila Shopping App</title>
     <link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300;1,400;1,500&display=swap' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <style>
         * {
-          box-sizing: border-box;
+            box-sizing: border-box;
         }
-        
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #afb2af;
+    
+        }
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #333;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .navbar-brand i {
+            margin-right: 10px;
+        }
+
+        .btn-outline-danger {
+            border-color: #dc3545;
+            color: #dc3545;
+            font-weight: 600;
+        }
+
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        h2 {
+            margin-top: 60px;
+            font-weight: 600;
+        }
+
+        .row {
+            margin: 0 -15px;
+        }
+
         .column {
-          float: left;
-          width: 25%;
-          padding: 100px;
-          margin: 30px;
+            float: left;
+            width: 25%;
+            padding: 15px;
         }
-        
-        /* Clearfix (clear floats) */
-        .row::after {
-          content: "";
-          clear: both;
-          display: table;
+
+        .column img {
+            border: 2px solid #555;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.2s ease-in-out;
         }
-        img {
-  border: 2px solid #555;
- 
+
+        .column img:hover {
+            transform: scale(1.05);
         }
-        </style> 
-        
+
+        .column h3 {
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .column p {
+            color: #121111;
+        }
+
+        .column span {
+            font-size: 18px;
+            display: block;
+            margin-top: 15px;
+        }
+
+        .column i {
+            font-size: 24px;
+            display: inline-block;
+            margin-top: 5px;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .column:hover i {
+            color: #dc3545;
+        }
+
+        .btn-block {
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        /* Custom styling for the toast message */
+        .toast-yellow {
+            background-color: #94e4a6;
+            color: #ece9e9;
+        }
+
+        /* Custom styling for the cart page */
+        .cart-container {
+            margin-top: 40px;
+        }
+
+        .cart-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .cart-items {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .cart-item-content {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+        }
+
+        .cart-item-quantity {
+            font-size: 16px;
+            color: #777;
+        }
+
+        .cart-item-price {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .cart-total {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .cart-checkout-btn {
+            margin-top: 30px;
+        }
+
+        .cart-checkout-btn a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            background-color: #dc3545;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .cart-checkout-btn a:hover {
+            background-color: #c82333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .column {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .column {
+                width: 100%;
+            }
+        }
+    </style>
+
 </head>
+
 <body>
     <!-- Header -->
     <header>
-        <nav>
-            <a href="home.html" class="navbar navbar-expand-lg bg-dark navbar-dark">
-              <div className="container-fluid">Shopping Cart <i class='bx bxs-shopping-bags'></i> </div>
-            </a>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a href="home.html" class="navbar-brand">Neila Shopping Cart <i class='bx bxs-shopping-bags'></i> </a>
+            </div>
         </nav>
         <br>
         <a href="cart.html" class="btn btn-outline-danger">My Cart</a>
@@ -46,95 +220,92 @@
 
     <!-- Shopping section -->
     <section id="shop-products">
-        <h2  id="fontmo"><br><br><br><br>Shopping Products</h2>
-        <div class="row">
-            <div class="column">
-                <img src="../Images/smwatch.jfif" alt="Smart Watch" width="200px" height="200px">
-                <h3 id="fontmo">Smart Watch</h3>
-                <br>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nulla animi delectus deleniti odit, fugit nemo sit laborum inventore commodi</p>
-                <br>
-                <span id="fontmo"><b>$6000</b></span>
-                <i class='bx bxs-shopping-bag'></i>
-                <br>
-                <button class="btn btn-outline-danger" onclick="addToCart('Smart Watch', 10000)">Add To Cart</button>
-            </div>
+        <div class="container">
+            <h2 id="fontmo" class="text-center pt-5">Shopping Products</h2>
+            <div class="row">
+                <div class="column">
+                    <img src="../Images/smwatch.jfif" alt="Smart Watch">
+                    <h3 class="text-center">Smart Watch</h3>
+                    <p>Stay connected with the latest Smart Watch. Track your fitness, receive notifications, and more with this sleek and stylish device</p>
+                    <span id="fontmo"><b>$6000</b></span>
+                    <i class='bx bxs-shopping-bag'></i>
+                    <br>
+                    <button class="btn btn-outline-danger btn-block" onclick="addToCart('Smart Watch', 6000)">Add To Cart</button>
+                </div>
 
-            <div class="column">
-                <img src="../Images/printer.jfif" alt="Printer" width="200px" height="200px">
-                <h3 id="fontmo">Printer</h3>
-                <br>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nulla animi delectus deleniti odit, fugit nemo sit laborum inventore commodi</p>
-                <br>
-                <span id="fontmo"><b>$10,500</b></span>
-                <i class='bx bxs-shopping-bag'></i>
-                <br>
-                <button class="btn btn-outline-danger" onclick="addToCart('Printer', 8000)">Add To Cart</button>
-            </div>
+                <div class="column">
+                    <img src="../Images/printer.jfif" alt="Printer">
+                    <h3 class="text-center">Printer</h3>
+                    <p>Print your documents with ease using this high-quality printer. It provides fast and reliable printing for all your needs.</p>
+                    <span id="fontmo"><b>$10,500</b></span>
+                    <i class='bx bxs-shopping-bag'></i>
+                    <br>
+                    <button class="btn btn-outline-danger btn-block" onclick="addToCart('Printer', 10500)">Add To Cart</button>
+                </div>
 
-            <div class="column">
-                <img src="../Images/ear.jfif" alt="Earphones" width="200px" height="200px">
-                <h3 id="fontmo">Earphones</h3>
-                <br>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nulla animi delectus deleniti odit, fugit nemo sit laborum inventore commodi</p>
-                <br>
-                <span id="fontmo"><b>$2000</b></span>
-                <i class='bx bxs-shopping-bag'></i>
-                <br>
-                <button class="btn btn-outline-danger" onclick="addToCart('Earphones', 5000)">Add To Cart</button>
-            </div>
+                <div class="column">
+                    <img src="../Images/ear.jfif" alt="Earphones">
+                    <h3 class="text-center">Earphones</h3>
+                    <p>Immerse yourself in your favorite tunes with these high-quality earphones. Enjoy crystal-clear sound and comfort for hours.</p>
+                    <span id="fontmo"><b>$2000</b></span>
+                    <i class='bx bxs-shopping-bag'></i>
+                    <br>
+                    <button class="btn btn-outline-danger btn-block" onclick="addToCart('Earphones', 2000)">Add To Cart</button>
+                </div>
 
-            <!-- Add other product columns here -->
-            <div class="column">
-                <img src="../Images/headphones.jfif" alt="Headphones" width="200px" height="200px">
-                <h3 id="fontmo">Headphones</h3>
-                <br>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nulla animi delectus deleniti odit, fugit nemo sit laborum inventore commodi</p>
-                <br>
-                <span id="fontmo"><b>$4000</b></span>
-                <i class='bx bxs-shopping-bag'></i>
-                <br>
-                <button class="btn btn-outline-danger" onclick="addToCart('Headphones', 7000)">Add To Cart</button>
-            </div>
+                <div class="column">
+                    <img src="../Images/headphones.jfif" alt="Headphones">
+                    <h3 class="text-center">Headphones</h3>
+                    <p>Experience premium audio quality with these headphones. Perfect for music lovers and audiophiles</p>
+                    <span id="fontmo"><b>$4000</b></span>
+                    <i class='bx bxs-shopping-bag'></i>
+                    <br>
+                    <button class="btn btn-outline-danger btn-block" onclick="addToCart('Headphones', 4000)">Add To Cart</button>
+                </div>
 
-            <div class="column">
-                <img src="../Images/schoolbag.webp" alt="School Bag" width="200px" height="200px">
-                <h3 id="fontmo">School Bag</h3>
-                <br>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nulla animi delectus deleniti odit, fugit nemo sit laborum inventore commodi</p>
-                <br>
-                <span id="fontmo"><b>$1000</b></span>
-                <i class='bx bxs-shopping-bag'></i>
-                <br>
-                <button class="btn btn-outline-danger" onclick="addToCart('School Bag', 3000)">Add To Cart</button>
-            </div>
+                <div class="column">
+                    <img src="../Images/schoolbag.webp" alt="School Bag">
+                    <h3 class="text-center">School Bag</h3>
+                    <p>Carry your books and belongings in style with this durable and fashionable school bag. Ideal for students of all ages</p>
+                    <span id="fontmo"><b>$1000</b></span>
+                    <i class='bx bxs-shopping-bag'></i>
+                    <br>
+                    <button class="btn btn-outline-danger btn-block" onclick="addToCart('School Bag', 1000)">Add To Cart</button>
+                </div>
 
-            <div class="column">
-                <img src="../Images/shoes.webp" alt="Shoes" width="200px" height="200px">
-                <h3 id="fontmo">Shoes</h3>
-                <br>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nulla animi delectus deleniti odit, fugit nemo sit laborum inventore commodi</p>
-                <br>
-                <span id="fontmo"><b>$1670</b></span>
-                <i class='bx bxs-shopping-bag'></i>
-                <br>
-                <button class="btn btn-outline-danger" onclick="addToCart('Shoes', 4000)">Add To Cart</button>
-            </div>
+                <div class="column">
+                    <img src="../Images/shoes.webp" alt="Shoes">
+                    <h3 class="text-center">Shoes</h3>
+                    <p>Step out in style with these comfortable and trendy shoes. Perfect for casual wear and sports activities.</p>
+                    <span id="fontmo"><b>$1670</b></span>
+                    <i class='bx bxs-shopping-bag'></i>
+                    <br>
+                    <button class="btn btn-outline-danger btn-block" onclick="addToCart('Shoes', 1670)">Add To Cart</button>
+                </div>
 
-            <div class="column">
-                <img src="../Images/bag1.jpg" alt="Bag" width="200px" height="200px">
-                <h3 id="fontmo">Bag</h3>
-                <br>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nulla animi delectus deleniti odit, fugit nemo sit laborum inventore commodi</p>
-                <br>
-                <span id="fontmo"><b>$2600</b></span>
-                <i class='bx bxs-shopping-bag'></i>
-                <br>
-                <button class="btn btn-outline-danger" onclick="addToCart('Bag', 2500)">Add To Cart</button>
+                <div class="column">
+                    <img src="../Images/bag1.jpg" alt="Bag">
+                    <h3 class="text-center">Bag</h3>
+                    <p>Carry your essentials in this stylish and practical bag. Ideal for travel, work, or everyday use</p>
+                    <span id="fontmo"><b>$2600</b></span>
+                    <i class='bx bxs-shopping-bag'></i>
+                    <br>
+                    <button class="btn btn-outline-danger btn-block" onclick="addToCart('Bag', 2600)">Add To Cart</button>
+                </div>
             </div>
-
         </div>
     </section>
+
+    
+
+    <!-- Toast Message -->
+    <div class="toast position-fixed bottom-0 end-0 p-3" id="addToCartToast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-yellow">
+            <div class="toast-body text-dark">
+                Item added to cart!
+            </div>
+        </div>
+    </div>
 
     <script>
         function addToCart(productName, price) {
@@ -157,7 +328,54 @@
 
             // Save updated cart items to local storage
             localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Show the toast message when an item is added to the cart
+            const toast = new bootstrap.Toast(document.getElementById('addToCartToast'));
+            toast.show();
         }
+
+        function showCartItems() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const container = document.querySelector('.cart-items');
+            const totalElement = document.getElementById('totalPrice');
+            let total = 0;
+
+            container.innerHTML = '';
+
+            cartItems.forEach((product, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+
+                cartItem.innerHTML = `
+                    <div class="d-flex align-items-center">
+                        <img src="../Images/${product.name.toLowerCase().replace(/\s/g, '')}.jpg" alt="${product.name}" width="80">
+                        <div class="cart-item-content ml-3">
+                            <h5 class="cart-item-name">${product.name}</h5>
+                            <p class="cart-item-quantity">Quantity: ${product.quantity}</p>
+                            <p class="cart-item-price">Price: ₹${product.price * product.quantity}</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-danger" onclick="removeFromCart(${index})">Remove</button>
+                `;
+
+                container.appendChild(cartItem);
+                total += product.price * product.quantity;
+            });
+
+            totalElement.textContent = total;
+        }
+
+        function removeFromCart(index) {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.splice(index, 1);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            showCartItems();
+        }
+
+        showCartItems();
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
+
 </html>
